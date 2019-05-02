@@ -8,6 +8,8 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import ResetPassword from './components/auth/ResetPassword';
 import Home from './components/home/Home';
+import Profile from './components/profile/Profile';
+import ProfileEdit from './components/profile/ProfileEdit';
 
 import * as ROUTES from './constants/routes';
 
@@ -25,6 +27,8 @@ class App extends Component {
               <Route exact path={ROUTES.LOGIN} component={Login} />
               <Route exact path={ROUTES.PASSWORD_RESET} component={ResetPassword} />
               <Route exact path={ROUTES.HOME} component={Home} />
+              <Route path={ROUTES.PROFILE} component={Profile} exact/>
+              <Route path={ROUTES.PROFILE_EDIT} component={ProfileEdit}/>
             </Switch>
           </div>
           <Footer/>
