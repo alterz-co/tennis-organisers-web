@@ -131,7 +131,7 @@ class NavAuth extends Component {
         <Menu.Menu position='right'>
           <Menu.Item as={Link} to={ROUTES.HOME} name='Your Tournaments'/>
           <Menu.Item>
-            <Button as={Link} to='' content='➕ New Tournament' basic color='black'/>
+            <Button as={Link} to={ROUTES.TOURNAMENT_ADD} content='➕ New Tournament' basic color='black'/>
           </Menu.Item>
           <Menu.Item>
             <Button as={Link} to='' color='pink'>
