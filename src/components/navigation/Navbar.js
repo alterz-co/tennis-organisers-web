@@ -134,7 +134,7 @@ class NavAuth extends Component {
             <Button as={Link} to={ROUTES.TOURNAMENT_ADD} content='➕ New Tournament' basic color='black'/>
           </Menu.Item>
           <Menu.Item>
-            <Button as={Link} to='' color='pink'>
+            <Button as={Link} to={ROUTES.ANNOUNCEMENT_ADD} color='pink'>
               <Icon name='plus' /> New Announcement
             </Button>
           </Menu.Item>

@@ -12,3 +12,5 @@ export const TOURNAMENT_EDIT = '/tournament/edit/:id';
 export const UPDATES_EDIT = '/updates/edit/:id';
 export const RESULTS_EDIT = '/results/edit/:id';
 export const SCHEDULE_EDIT = '/schedule/edit/:id';
+export const ANNOUNCEMENT_ADD = '/announcements/add';
+export const ANNOUNCEMENT_EDIT = '/announcements/edit/:id';
