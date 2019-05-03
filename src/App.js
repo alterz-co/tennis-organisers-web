@@ -16,6 +16,8 @@ import TournamentEdit from './components/tournaments/TournamentEdit';
 import TournamentUpdatesEdit from './components/tournaments/updates/TournamentUpdatesEdit';
 import TournamentResultsEdit from './components/tournaments/results/TournamentResultsEdit';
 import TournamentScheduleEdit from './components/tournaments/schedule/TournamentScheduleEdit';
+import AnnouncementsAdd from './components/announcements/AnnouncementsAdd';
+import AnnouncementsEdit from './components/announcements/AnnouncementsEdit';
 
 import * as ROUTES from './constants/routes';
 
@@ -41,6 +43,8 @@ class App extends Component {
               <Route path={ROUTES.UPDATES_EDIT} component={TournamentUpdatesEdit}/>
               <Route path={ROUTES.RESULTS_EDIT} component={TournamentResultsEdit}/>
               <Route path={ROUTES.SCHEDULE_EDIT} component={TournamentScheduleEdit}/>
+              <Route path={ROUTES.ANNOUNCEMENT_ADD} component={AnnouncementsAdd}/>
+              <Route path={ROUTES.ANNOUNCEMENT_EDIT} component={AnnouncementsEdit}/>
             </Switch>
           </div>
           <Footer/>
