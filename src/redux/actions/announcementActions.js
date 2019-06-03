@@ -2,11 +2,13 @@ export const addAnnouncement = (announcement) => {
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
     const organiser = getState().firebase.profile.name;
+    const dateTime = String(new Date());
+    const createdAt = dateTime.replace(" GMT+0800 (Singapore Standard Time)", "");
 
     const newAnnouncement = {
       ...announcement,
       organiser,
-      createdAt: new Date()
+      createdAt
     }
 
     firestore.collection('announcements').add(newAnnouncement);

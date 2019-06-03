@@ -4,7 +4,6 @@ import { Container, Header, Feed, Button, Icon } from 'semantic-ui-react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import moment from 'moment';
 import LoaderComponent from '../LoaderComponent';
 
 class Announcements extends Component {
@@ -31,7 +30,7 @@ class Announcements extends Component {
                   </Button>
                   <Feed.Summary>
                     <a style={{ color: 'black', fontWeight: 'bold' }}>{announcement.title}</a>
-                    <Feed.Date>{moment(announcement.createdAt.toDate()).calendar()}</Feed.Date>
+                    <Feed.Date>{announcement.createdAt}</Feed.Date>
                   </Feed.Summary>
                   <Feed.Extra text>
                     <div
