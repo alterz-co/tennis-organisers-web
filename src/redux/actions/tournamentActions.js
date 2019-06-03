@@ -7,12 +7,14 @@ export const addTournament = (tournament) => {
     const profile = getState().firebase.profile;
     const organiserId = getState().firebase.auth.uid;
     const firestore = getFirestore();
+    const dateTime = String(new Date());
+    const createdAt = dateTime.replace(" GMT+0800 (Singapore Standard Time)", "");
 
     firestore.collection('tournaments').add({
       ...tournament,
       organiserId: organiserId,
       organiser: profile.name,
-      createdAt: new Date()
+      createdAt
     }).then(() => {
       dispatch({ type: 'ADD_TOURNAMENT_SUCCESS', payload: 'Your tournament has been successfully added.' });
     }).catch((err) => {
@@ -37,12 +39,14 @@ export const addSchedule = (tournamentId, schedule) => {
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
     const organiser = getState().firebase.profile.name;
+    const dateTime = String(new Date());
+    const createdAt = dateTime.replace(" GMT+0800 (Singapore Standard Time)", "");
 
     const newSchedule = {
       ...schedule,
       organiser,
       tournamentId,
-      createdAt: new Date()
+      createdAt
     }
 
     firestore.collection('schedule').add(newSchedule);
@@ -66,12 +70,14 @@ export const addUpdate = (tournamentId, update) => {
     const firestore = getFirestore();
     const organiser = getState().firebase.profile.name;
     const body = update.body;
+    const dateTime = String(new Date());
+    const createdAt = dateTime.replace(" GMT+0800 (Singapore Standard Time)", "");
 
     const newUpdate = {
       body,
       name: organiser,
       tournamentId,
-      createdAt: new Date()
+      createdAt
     }
 
     firestore.collection('updates').add(newUpdate);
@@ -93,11 +99,13 @@ export const editUpdate = (updateId, update) => {
 export const addResult = (tournamentId, result) => {
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
+    const dateTime = String(new Date());
+    const createdAt = dateTime.replace(" GMT+0800 (Singapore Standard Time)", "");
 
     const newResult = {
       ...result,
       tournamentId,
-      createdAt: new Date()
+      createdAt
     }
 
     firestore.collection('results').add(newResult);
