@@ -7,6 +7,8 @@ import { firestoreConnect } from 'react-redux-firebase';
 import LoaderComponent from '../../LoaderComponent';
 import TournamentHeader from '../TournamentHeader';
 import TournamentResultsAdd from './TournamentResultsAdd';
+import _ from 'lodash';
+import moment from 'moment';
 
 import * as ROUTES from '../../../constants/routes';
 
@@ -22,6 +24,10 @@ class TournamentResults extends Component {
       return <LoaderComponent/>
     }
 
+    const resultsDate = _.orderBy(results, function(o) {
+      return new moment(o.date).format('YYYYMMDD');
+    }, ['desc']);
+
     return(
       <Container>
         <TournamentHeader tournamentId={tournamentId} tournament={tournament}/>
@@ -29,7 +35,7 @@ class TournamentResults extends Component {
         <Header as='h2' textAlign='center'>Results</Header>
         <TournamentResultsAdd tournamentId={tournamentId}/>
         {
-          results && results.map(result => {
+          resultsDate && resultsDate.map(result => {
             return result.tournamentId === tournamentId && (
               <div key={result.id} style={{ marginTop: 50 }}>
                 <Divider horizontal>
